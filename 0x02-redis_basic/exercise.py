@@ -5,6 +5,7 @@
 import redis
 import uuid
 from typing import Union
+from functools import wraps
 
 
 class Cache:
@@ -19,6 +20,8 @@ class Cache:
         self.__redis = redis.Redis()
         self.__redis.flushdb()
 
+    @call_history
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
             Method that generates a string using UUID lib
