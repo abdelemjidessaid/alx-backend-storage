@@ -24,7 +24,6 @@ class Cache:
             Method that generates a string using UUID lib
         """
         key = str(uuid.uuid4())
-        client = self.__redis
-        client.set(key, data)
+        self.__redis.set(key, data)
 
         return key
