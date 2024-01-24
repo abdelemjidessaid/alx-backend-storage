@@ -11,7 +11,7 @@ class Cache:
     """
         Base class that stores the redis instance
     """
-    def __init__(self) -> None:
+    def __init__(self):
         """
             The class Cache Constructor
         """
