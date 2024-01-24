@@ -4,6 +4,7 @@
 """
 import redis
 import uuid
+from typing import Union
 
 
 class Cache:
@@ -15,8 +16,9 @@ class Cache:
             The class Cache Constructor
         """
         self.__redis = redis.Redis()
+        self.__redis.flushdb()
 
-    def store(self, data: [str, bytes, int, float]) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """
             Method that generates a string using UUID lib
         """
