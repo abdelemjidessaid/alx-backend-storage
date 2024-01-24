@@ -23,7 +23,9 @@ class Cache:
         """
             Method that generates a string using UUID lib
         """
-        key = str(uuid.uuid4())
-        self.__redis.set(key, data)
-
-        return key
+        if data:
+            key = str(uuid.uuid4())
+            self.__redis.set(key, data)
+            return key
+        else:
+            return None
