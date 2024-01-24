@@ -11,7 +11,8 @@ class Cache:
     """
         Base class that stores the redis instance
     """
-    def __init__(self):
+
+    def __init__(self) -> None:
         """
             The class Cache Constructor
         """
@@ -23,6 +24,7 @@ class Cache:
             Method that generates a string using UUID lib
         """
         key = str(uuid.uuid4())
-        self.__redis.set(key, data)
+        client = self.__redis
+        client.set(key, data)
 
         return key
